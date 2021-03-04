@@ -1,62 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <title>the good title</title>
- 
+ <head>
+
+     <title>
+        the good title
+    </title>
+</head>
 <body>
 
-<h2>prasanna arla computes</h2>
+<h2>prasanna arla Computes</h2>
 
 <form>
-    <label for="first_value">Enter a number </label>
-    <input type ="number" id="first_value" name="first_value"  value=10> <br>
+    <label for="form1_firstelement">Enter a number </label>
+    <input type ="number" id="form1_firstelement" name="form1_firstelement" value=10> <br>
 
-    <label for="second_value">Enter a number </label>
-    <input type ="number" id="second_value" name="second_value"  value=2> <br>
+    <label for="form1_secondelement">Enter a number </label>
+    <input type ="number" id="form1_secondelement" name="form1_secondelement" value=2 > <br>
 
     <input type="button" onclick="permutations()" value="Compute">
 </form>
 
-
-<p id="result">first permute second is product </p>
-
+<p id="result">First permute Second is product  </p>
 <form>
-    <input type="radio" id="rg1_plus" name="operation"  onclick="processRadio()" value="plus"> <label for="rg1_plus">+</label>
-    </br>    
-    <input type="radio" id="rg1_minus" name="operation" onclick="processRadio()" value="minus"> <label for="rg1_minus">-</label>
-    </br>
-    <input type="radio" id="rg1_times" name="operation" onclick="processRadio()" value="times"> <label for="rg1_times">*</label>
-    </br>
-    <input type="radio" id="rg1_divide" name="operation" onclick="processRadio()" value="divide"> <label for="rg1_divide">/</label>
-    </br>    
-    
-    </form>
-    <p id="arithmetic">The text will be displayed on the screen by checking result </p>
+<input type="radio" id="rg1_plus" name="operation"  onclick="processRadio()" value="plus"> <label for="rg1_plus">+</label>
+</br>    
+<input type="radio" id="rg1_minus" name="operation" onclick="processRadio()" value="minus"> <label for="rg1_minus">-</label>
+</br>
+<input type="radio" id="rg1_times" name="operation" onclick="processRadio()" value="times"> <label for="rg1_times">*</label>
+</br>
+<input type="radio" id="rg1_divide" name="operation" onclick="processRadio()" value="divide"> <label for="rg1_divide">/</label>
+</br>    
 
-    <script> 
+</form>
+
+
+
+<p id="arithmetic">The text will be displayed on the screen by checking result </p>
+
+<script> 
+
+function permutations(){
+    var a = document.getElementById("form1_firstelement").value;
+        var b = document.getElementById("form1_secondelement").value;
+        var product = 1;
+        var z = a;
+        out = document.getElementById("result")
+        for (var i = a-1; i > 0; i--) {
+            a = a * i;
+        }
+        var c = z - b;
+        for (j = c-1 ; j > 0; j--) {
+            c = c * j;
+        }
+        product = a / c;
+        console.log(product);
+        out.innerHTML = d + " permute " + b + " should be " + product;
     
-    function permutations(){
-        var ab = document.getElementById("form1_first_value").value;
-            var cd = document.getElementById("form1_second_value").value;
-            var product = 1;
-            var z = ab;
-            out = document.getElementById("result")
-            for (var i = ab-1; i > 0; i--) {
-                ab = ab * i;
-            }
-            var ef = z - cd;
-            for (j = ef-1 ; j > 0; j--) {
-                ef = ef * j;
-            }
-            product = ab / ef;
-            console.log(product);
-            out.innerHTML = z + " permute " + cd + " should be " + product;
-        
-    }
-    </script>
-    <script>
+}
+</script>
+
+
+<script>
     function processRadio() {
-        let first = document.getElementById("form1_first_value").value;
-        let second = document.getElementById("form1_second_value").value;
+        let first = document.getElementById("form1_firstelement").value;
+        let second = document.getElementById("form1_secondelement").value;
         plus = document.getElementById("rg1_plus").checked
         minus = document.getElementById("rg1_minus").checked
         times = document.getElementById("rg1_times").checked
@@ -76,7 +83,6 @@
         }
     }
 </script>
-
 
 
 </body>
